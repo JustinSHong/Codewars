@@ -8,7 +8,7 @@
 // Note: keep the original order of the names in the output.
 
 
-function friend(friends){
+function friend(friends) {
   let result = []; // holds all my friends' names
 
   for (let person of friends) {
@@ -18,10 +18,13 @@ function friend(friends){
     }
   }
   return result;
+}
 
-  // return friends.filter(function(person) {
-  //   return person.length === 4;
-  // });
+function friend(friends) {
+	
+	return friends.filter(function(person) {
+    	return person.length === 4;
+    });
 }
 
 friend(["Ryan", "Kieran", "Mark"]); // ["Ryan", "Mark"]
