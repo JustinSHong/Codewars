@@ -31,6 +31,17 @@ function removeSmallest(numbers) {
   return numbers;
 }
 
+function removeSmallest(numbers) {
+  // find first occurrence of smallest num
+  let s = Math.min(...numbers);
+  // find the index of smallest num or its first copy
+    // pass other nums that do not have this index
+  return numbers.filter(function(num, index) {
+    // output: a new arr without smallest num or its first copy
+    return index !== numbers.indexOf(s);
+  });
+}
+
 // test cases
 removeSmallest([1,2,3,4,5]); // [2,3,4,5]
 removeSmallest([5,3,2,1,4]); // [5,3,2,4]
