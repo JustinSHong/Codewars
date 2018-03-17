@@ -23,6 +23,15 @@ function findSmallestInt(args) {
 	return Math.min(...args);
 }
 
+function findSmallestInt(args) {
+
+	// sort integers from smallest to largest
+	// output: first integer in the new arr
+	return args.sort(function(a, b) {
+		return a - b;
+	})[0];
+}
+
 findSmallestInt([34, 15, 88, 2]); // 2
 findSmallestInt([34, -345, -1, 100]); // -345
 
