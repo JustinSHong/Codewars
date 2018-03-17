@@ -21,6 +21,16 @@ function removeSmallest(numbers) {
   return numbers;
 }
 
+function removeSmallest(numbers) {
+  // find smallest num
+  let s = Math.min(...numbers);
+  // remove the smallest num
+  numbers.splice(numbers.indexOf(s), 1);
+  // output: the original arr without smallest number
+    // or its first copy
+  return numbers;
+}
+
 // test cases
 removeSmallest([1,2,3,4,5]); // [2,3,4,5]
 removeSmallest([5,3,2,1,4]); // [5,3,2,4]
