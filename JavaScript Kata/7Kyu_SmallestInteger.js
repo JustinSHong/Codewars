@@ -16,6 +16,13 @@ function  findSmallestInt(args) {
     return current;
 }		
 
+function findSmallestInt(args) {
+
+	// use Math.min to return the smallest num
+	// use ... to indicate args is an iterable
+	return Math.min(...args);
+}
+
 findSmallestInt([34, 15, 88, 2]); // 2
 findSmallestInt([34, -345, -1, 100]); // -345
 
