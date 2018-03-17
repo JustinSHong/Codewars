@@ -18,15 +18,32 @@ function XO(str) {
   return xCount == oCount;
 }
 
+function XO(str) {
+  // turn str into an arr of chars
+  str = str.toLowerCase().split('');
+  let xCount = 0;
+  let oCount = 0;
+
+  str.forEach(function(char) {
+    if (char === "x") {
+    xCount++;
+  } else if (char === "o") {
+    oCount++;
+  }
+  });
+  // output: boolean
+  return xCount === oCount;
+}
+
 // test cases
-XO('xo') // true
-XO('XO') // true
-XO('xo0'), // true
-XO('xxxoo') // false
-XO("xxOo") // true
-XO('') // true
-XO('xxxxxoooxooo') // true
-XO("xxxm") // false
-XO("ooom") // false
-XO("Oo") // false
-XO('abcdefghijklmnopqrstuvwxyz') // true
+XO('xo'); // true
+XO('XO'); // true
+XO('xo0'); // true
+XO('xxxoo'); // false
+XO("xxOo"); // true
+XO(''); // true
+XO('xxxxxoooxooo'); // true
+XO("xxxm"); // false
+XO("ooom"); // false
+XO("Oo"); // false
+XO('abcdefghijklmnopqrstuvwxyz'); // true
