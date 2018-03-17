@@ -35,6 +35,17 @@ function XO(str) {
   return xCount === oCount;
 }
 
+function XO(str) {
+  // using regex find all matches of X and Os in str
+    // matches are in array form
+  let xMatch = str.match(/x/gi);
+  let oMatch = str.match(/o/gi);
+
+  // output: boolean from comparing length of matches
+    // no matches produces an empty string which evals to null!
+  return ( xMatch && xMatch.length) === (oMatch && oMatch.length);
+}
+
 // test cases
 XO('xo'); // true
 XO('XO'); // true
