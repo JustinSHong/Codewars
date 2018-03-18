@@ -10,6 +10,15 @@ function minMax(arr){
   return [Math.min(...arr), Math.max(...arr)];
 }
 
+function minMax(arr) {
+	// sort the nums in arr from least to greatest
+	arr.sort(function(a, b) {
+		return a - b;
+	});
+	// output = [least, greatest]
+	return [arr[0], arr[arr.length -1]];
+}
+
 // test cases
 minMax([1,2,3,4,5]); // [1,5]
 minMax([2334454,5]); // [5, 2334454]
