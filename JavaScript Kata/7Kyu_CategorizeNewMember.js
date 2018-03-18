@@ -25,6 +25,19 @@ function openOrSenior(data){
   return result
 }
 
+function openOrSenior(data) {
+  // input: array of arrays
+    // subarrs contain info about member age and handicap
+  
+  // check each member's data and categorize each member
+  // output: an array with elements being:
+  return data.map(function(member) {
+    // "Senior" for members who are greater than 55yo
+      // and have a handicap greater than 7
+    return member[0] >= 55 && member[1] > 7 ? "Senior" :"Open";
+  });
+}
+
 // test cases
 openOrSenior([[45, 12],[55,21],[19, -2],[104, 20]]); // ['Open', 'Senior', 'Open', 'Senior']
 openOrSenior([[3, 12],[55,1],[91, -2],[53, 23]]); // ['Open', 'Open', 'Open', 'Open']
