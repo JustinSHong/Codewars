@@ -21,6 +21,15 @@ function disemvowel(str) {
   return result;
 }
 
+function disemvowel(str) {
+  // use regex to define set of lowercase and uppercase vowels
+  let regex = /[aeiou]|[AEIOU]/g;
+  // replace vowels in str with ''
+  // output str with no vowels
+  return str.replace(regex, '');
+  
+}
+
 // test cases
 disemvowel("This website is for losers LOL!"); // "Ths wbst s fr lsrs LL!"
 disemvowel("No offense but,\nYour writing is among the worst I've ever read"); // "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd"
