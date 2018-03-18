@@ -31,6 +31,40 @@ function sumDigPow(a, b) {
   return result;
 }
 
+// use toString() and sumDigPow()
+function toString(num) {
+  // takes a number and returns an array with the number's digits
+  num = num.toString();
+  // output: an array of digits in string form
+  return num.split('').map(function(str) {
+    // convert each str into a digit
+    return parseInt(str, 10);
+  }); 
+}
+
+function sumDigPow(a, b) {
+  // takes a range of integers and checks if each num
+    // is equal to the sum of its digits raised to the consecutive power
+  let result = [];
+  // iterate from a to b
+  
+  
+  for (let i = a; i <= b; i++) {
+    let sum = 0;
+    // convert num with toString into an array of digits
+    for (let j = 0; j < toString(i).length; j++) {
+      // find the sum of num's digits raised
+      sum += Math.pow(toString(i)[j], j + 1);
+    }
+    if (sum === i) {
+      result.push(i);
+    }
+  } 
+  // output: an array with numbers whose digits can be
+    // raised to the consecutive power and summed to equal their respective nums
+  return result;
+}
+
 // test cases
 sumDigPow(1, 10); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 sumDigPow(1, 100); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 89]
