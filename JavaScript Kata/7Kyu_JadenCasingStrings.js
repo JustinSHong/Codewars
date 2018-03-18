@@ -15,6 +15,17 @@ function JadenCase(str) {
   }).join(' ');
 };
 
+function JadenCase(str) {
+	// use regex to match chars that are next to start of str
+		// also match chars found right after spaces
+	let regex =/(^|\s)[a-z]/g;
+	// replace all matches in str with their capital version
+		// output: str in Jaden Case
+	return str.replace(regex, function(char) {
+		return char.toUpperCase();
+	});	
+}
+
 // test cases
 JadenCase("how can mirrors be real if our eyes aren't real");
 // returns "How Can Mirrors Be Real If Our Eyes Aren't Real"
