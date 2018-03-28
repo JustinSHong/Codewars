@@ -10,9 +10,6 @@ function incrementString (strng) {
   let chars = strng.split('').filter((char) => {
     return regex1.test(char);
   });
-  // store non-number chars in result
-  let result = strng.slice(0, strng.indexOf(chars[0]));
-  let num;
   // check if any nums were found, if not add 1 to strng
   if (chars.length === 0) {
     return strng + `${1}`;
@@ -21,18 +18,13 @@ function incrementString (strng) {
   else {
     // convert digits in char to a whole num
     num = parseInt(chars.join(''), 10);
-
-    // add leading 0s to result, if any
-    // a leading 0 occurs before any non-zero digit
-    if (strng.search(regex2) > strng.indexOf(0)) {
-    	for (let i = 0; i < chars.length - num.length; i++) {
-    		result += "0";
-    	}
-    }
     // increment num by 1
     num++;
   }
   // output: original string with numbers added to the end
+  // store non-number chars in result
+  let result = strng.slice(0, strng.indexOf(chars[0]));
+  let num;
   result += num.toString();
   return result;
 }
