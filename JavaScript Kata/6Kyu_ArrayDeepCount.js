@@ -4,13 +4,29 @@
 // including any within inner-level arrays.
 
 function deepCount(a) {
-	// base case: a.length is 0
+	let count = 0;
 
-	// recursive case: a.length is no 0
-	// go one leve deeper in a
+	function recur() {
+		// base case: a.length is 0
+		if (a.length === 0) {
+			return count;
+		}
+		// recursive case: a.length is no 0, a is an arr
+		// iterate over a
+		for (let el of a) {
+			if (typeof el !== 'object') {
+				// only count non-objects in each top level arr
+				count++;
+			}
+			// call recur on array objects
+			else {
+				recur(el);
+			}
+		}
+	}	
+	// output number of els in each top level arr
+	return recur();
 }
-
-
 
 // test cases
 deepCount([]); // 0
