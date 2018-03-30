@@ -2,6 +2,17 @@
 // If the string already ends with a number, the number should be incremented by 1. 
 // If the string does not end with a number the number 1 should be appended to the new string.
 
+// takes a num in str form and adds '0' in front of it
+function zeroPad(strng, strLength, max) {
+	let result = '';
+	let count = 0;
+	while (count < max - strLength) {
+		result += '0';
+		count++;
+	}
+	return result + strng;
+}
+
 function incrementString (strng) {
   // use regex to find numbers in str, if any
   let regex1 = /\d/;
@@ -10,6 +21,9 @@ function incrementString (strng) {
   let chars = strng.split('').filter((char) => {
     return regex1.test(char);
   });
+  // store alphanumeric chars in result
+  let result = strng.slice(0, strng.indexOf(chars[0]));
+  let num;
   // check if any nums were found, if not add 1 to strng
   if (chars.length === 0) {
     return strng + `${1}`;
@@ -21,10 +35,7 @@ function incrementString (strng) {
     // increment num by 1
     num++;
   }
-  // output: original string with numbers added to the end
-  // store non-number chars in result
-  let result = strng.slice(0, strng.indexOf(chars[0]));
-  let num;
+  // output: original string with numbers added to the end  
   result += num.toString();
   return result;
 }
