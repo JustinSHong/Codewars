@@ -12,6 +12,35 @@
 
 // n (integer >= m) which gives the end of the search (n inclusive)
 
+function findPrimes(num, minimum) {
+	// holds all integers from 2 to num
+	let integers = [];
+	// marks integers as prime or composite
+		// true means an integer is a prime
+		// false means an integer is a composite
+	let sieve = [];
+	let sum = 0;
+
+	// mark all integers from 2 to num as true initially
+	for (let i = 2; i <= num; i++) {
+		integers.push(i);
+		sieve.push(Boolean(i));
+    }
+	
+  // mark all composites as false
+	for (let j = 0; j <= integers.length; j++) {
+		if (sieve[j]) {
+			for (let k = Math.pow(integers[j], 2); k <= num; k += integers[j]) {
+				sieve[integers.indexOf(k)] = false;
+			}
+		}
+	}
+	
+	// filter out primes that are greater than or equal to m
+	return integers.filter((num) => {
+		return sieve[integers.indexOf(num)] && num >= minimum;
+	});
+}
 
 // test cases
 gap(2,100,110) // [101, 103]
