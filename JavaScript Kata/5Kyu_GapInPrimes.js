@@ -42,6 +42,24 @@ function findPrimes(num, minimum) {
 	});
 }
 
+function gap(g, m, n) {
+  // find the prime numbers from m to n inclusive
+  let primes = findPrimes(n, m);
+  console.log(g);
+  console.log(primes);
+  // iterate over the array of primes
+    // find a prime pair by adding g to each prime
+    // a pair is completed when a sum of g and a prime is found in primes arr
+  for (let prime of primes) {
+    let index = primes.indexOf(prime);
+    if (primes.includes(prime + g)) {
+      return [prime, primes[primes.indexOf(prime + g)]];
+    }
+  }
+  // output: false case where no prime pair between m and n have a gap g
+  return null;
+}
+
 // test cases
 gap(2,100,110) // [101, 103]
 gap(4,100,110) // [103, 107]
