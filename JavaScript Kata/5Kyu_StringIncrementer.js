@@ -3,6 +3,9 @@
 // If the string does not end with a number the number 1 should be appended to the new string.
 
 // takes a num in str form and adds '0' in front of it
+// strng is a number in string form
+// strLength is the length of strng
+// max refers to chars.length in incrementString()
 function zeroPad(strng, strLength, max) {
 	let result = '';
 	let count = 0;
@@ -34,6 +37,10 @@ function incrementString (strng) {
     num = parseInt(chars.join(''), 10);
     // increment num by 1
     num++;
+  	// add leading 0s if needed
+  	if (chars.length > num.toString().length) {
+  		result += zeroPad(num.toString(), num.toString().length, chars.length);
+  	}
   }
   // output: original string with numbers added to the end  
   result += num.toString();
