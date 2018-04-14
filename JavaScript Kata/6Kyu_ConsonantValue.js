@@ -10,9 +10,7 @@
 
 // input: string with vowels and consonants
 // split s by vowels, leaving behind consonants or strings of consonants
-// find the value of all consonants or consonant substrings
-// output: integer describing value of all consonants in s
-// return the largest value
+// output: the largest value of all consonants or consonant substrings
 
 function solve(s) {
 	let vowels = /[aeiou]/g;
@@ -22,13 +20,12 @@ function solve(s) {
 		.filter(char => {
 			return char;
 		});
-	//   console.log('s: ', s);
-	//   console.log('consonants: ', consonants);
 	let values = [];
 	for (let c of consonants) {
 		if (c.length === 1) {
 			values.push(c.charCodeAt(0) - "a".charCodeAt(0) + 1);
 		} else {
+			// substrings: iterate over the chars
 			let temp = 0;
 			for (let char of c) {
 				temp += char.charCodeAt(0) - "a".charCodeAt(0) + 1;
