@@ -8,6 +8,37 @@
 // Given a lowercase string that has alphabetic characters only and no spaces,
 // return the highest value of consonant substrings.
 
+// input: string with vowels and consonants
+// split s by vowels, leaving behind consonants or strings of consonants
+// find the value of all consonants or consonant substrings
+// output: integer describing value of all consonants in s
+// return the largest value
+
+function solve(s) {
+	let vowels = /[aeiou]/g;
+	let consonants = s
+		.toLowerCase()
+		.split(vowels)
+		.filter(char => {
+			return char;
+		});
+	//   console.log('s: ', s);
+	//   console.log('consonants: ', consonants);
+	let values = [];
+	for (let c of consonants) {
+		if (c.length === 1) {
+			values.push(c.charCodeAt(0) - "a".charCodeAt(0) + 1);
+		} else {
+			let temp = 0;
+			for (let char of c) {
+				temp += char.charCodeAt(0) - "a".charCodeAt(0) + 1;
+			}
+			values.push(temp);
+		}
+	}
+	return Math.max(...values);
+}
+
 // test cases
 solve("zodiac");
 // 26
