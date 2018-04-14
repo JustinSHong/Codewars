@@ -7,6 +7,29 @@
 // Again, Even - Odd = 2 - 2 = 0. Ignore letters.
 // The input will be an array of lowercase letters and numbers only.
 
+// input: array
+// odd nums will have (num % 2 === 1)
+// find and store all even nums in an array
+// find and store all odd nums in an array
+// subtract the arrays lengths from each other
+// output: difference of the number of even ints and the number of odd ints
+
+function solve(a) {
+	let evens = [];
+	let odds = [];
+	let nums = a.filter(el => {
+		return typeof el === "number";
+	});
+	nums.forEach(num => {
+		if (num % 2 === 1) {
+			odds.push(num);
+		} else {
+			evens.push(num);
+		}
+	});
+	return evens.length - odds.length;
+}
+
 // test cases
 solve([0, 1, 2, 3]); // 0
 solve([0, 1, 2, 3, "a", "b"]); // 0
