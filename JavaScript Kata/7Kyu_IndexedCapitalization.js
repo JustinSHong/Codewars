@@ -5,7 +5,23 @@
 // For example:
 //     capitalize("abcdef",[1,2,5]) = "aBCdeF"
 //     capitalize("abcdef",[1,2,5,100]) = "aBCdeF". There is no index 100.
-// The input will be a lowercase string with no spaces and an array of digits.
+
+// input: a string, array of integers that represent indices
+// split string into an array of chars
+// iterate over array of integers
+// for each arr element, capitalize a char in the given string
+// output: string with chars capitalized at integer indices in the input array
+
+function capitalize(s, arr) {
+	let splitStr = s.split("");
+	for (let idx of arr) {
+		if (!s[idx]) {
+			continue;
+		}
+		splitStr[idx] = s[idx].toUpperCase();
+	}
+	return splitStr.join("");
+}
 
 // test cases
 capitalize("abcdef", [1, 2, 5]); // 'aBCdeF'
