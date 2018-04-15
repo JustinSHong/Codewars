@@ -10,6 +10,28 @@
 // "abc" has a value of 6, while "abc abc" has a value of 12.
 // Now, the value at position 1 is multiplied by 1 while the value at position 2 is multiplied by 2.
 
+// input: a list of strings that are lowercase and have spaces
+// iterate over the list of strings
+// remove spaces from each string
+// find each string's score
+// multiply a string's score by the current index
+// add each score to result
+// output: a list of integers with each integer describing a string's value
+
+function wordValue(a) {
+	let result = [];
+	let regex = /\s/g;
+	for (let i = 0; i < a.length; i++) {
+		a[i] = a[i].replace(regex, "");
+		let temp = 0;
+		for (let char of a[i]) {
+			temp += char.charCodeAt(0) - "a".charCodeAt(0) + 1;
+		}
+		result.push(temp * (i + 1));
+	}
+	return result;
+}
+
 // test cases
 wordValue(["codewars", "abc", "xyz"]); // [88,12,225]
 wordValue(["abc abc", "abc abc", "abc", "abc"]); // [12,24,18,24]
