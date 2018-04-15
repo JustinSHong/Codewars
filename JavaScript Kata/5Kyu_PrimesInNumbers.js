@@ -7,6 +7,39 @@ The result will be a string with the following form :
 with the p(i) in increasing order and n(i) empty if n(i) is 1.
 Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
 
+// create an object to store unique prime factors of n
+// while n > 1
+  // add new prime factors to the object
+  // intialize a new prime factor's count to 1
+  // increment prime factor count by 1 when the same factor is found
+// iterate over object's keys
+  // if a factor's count is 1 add (factor) to result
+  // if a factor's count is greater than 1 add (factor**count) to result
+function primeFactors(n){
+    let result = "";
+    let factors = {};
+    let f = 2; // lowest possible factor
+    while (n > 1) {
+      if (n % f === 0) {
+        if (!factors.hasOwnProperty(f)) {
+          factors[f] = 1;
+        } else {
+          factors[f]++;
+        }
+        n /= f;
+      } else {
+        f++;
+      }
+    }
+    for (let key of Object.keys(factors)) {
+      if (factors[key] === 1) {
+        result += `(${key})`;
+      } else {
+        result += `(${key}**${factors[key]})`;
+      }
+    }
+    return result;
+}
 
 // test cases
 primeFactors(7775460); 
