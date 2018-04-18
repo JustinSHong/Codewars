@@ -7,3 +7,16 @@
 // cache should store the functions results and should only store unique arguments
 // if function arguments are repeated, return the cached results instead
 // repeated args should cause cache to return stored results for those args
+
+function cache(func) {
+	let cache = {};
+	return (...args) => {
+		let index = JSON.stringify(args);
+		if (index in cache) {
+			return cache[index];
+		} else {
+			cache[index] = func.apply(null, args);
+			return cache[index];
+		}
+	};
+}
