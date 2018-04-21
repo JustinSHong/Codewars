@@ -13,6 +13,14 @@
 // compose(f , g)(x)
 // => f( g( x ) )
 
+function compose(f, g) {
+	let args = [...arguments];
+	return (...input) => {
+		let result = g.apply(this, input);
+		return f.call(this, result);
+	};
+}
+
 // test cases
 // add1 = function(a){return a + 1}
 // min1 = function(a){return a - 1}
