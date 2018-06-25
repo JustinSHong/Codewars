@@ -15,3 +15,33 @@
 // m is the total volume of the building
 // find n number of cubes in the building
 // return - 1 if no such n exists
+
+// m is the total volume of the building
+// find n number of cubes in the building
+// return - 1 if no such n exists
+
+long long findNb(long long m)
+{
+  printf("input: %lld\n", m);
+  // initialize volume to hold volume of n cubes
+  long double volume = 0;
+  // initialize n - counter for cubes
+  int n = 0;
+  // loop to m
+  while (volume <= m) {   
+    // check: volume is larger than m
+    if (volume >= m) {
+      break;
+    }
+    // increment n
+    n++;
+    // increment volume
+    // printf("i : %d\n", i);
+    // printf("cube: %f\n", pow(i, 3));
+    volume += powl(n, 3);
+  }
+  printf("volume: %LF\n", volume);
+  printf("n: %d\n", n);
+  // check if volume is equal to m
+  return (m == volume) ? n : -1;
+}
